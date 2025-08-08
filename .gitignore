@@ -1,0 +1,68 @@
+# Dados persistentes
+data/
+!data/.gitkeep
+
+# Logs
+logs/
+!logs/.gitkeep
+
+# Backups
+backups/
+!backups/.gitkeep
+
+# Configurações locais
+.env
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.log
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos do editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Certificados SSL
+*.pem
+*.key
+*.crt
+*.csr
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Node modules (se houver)
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env/
+.venv/
+
+# Docker
+.docker/
+
+# Arquivos de configuração específicos do usuário
+config/local/
+config/custom/
+
+# Arquivos de teste
+test-data/
+*.test
+
+# Arquivos de documentação temporários
+docs/build/

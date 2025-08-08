@@ -1,0 +1,34 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "PostgreSQL Local",
+      "Group": "Automation Lab",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "postgres",
+      "Username": "postgres",
+      "SSLMode": "prefer",
+      "Comment": "Servidor PostgreSQL principal do laboratório"
+    },
+    "2": {
+      "Name": "N8N Database",
+      "Group": "Automation Lab",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "n8n",
+      "Username": "n8n_user",
+      "SSLMode": "prefer",
+      "Comment": "Banco de dados do N8N"
+    },
+    "3": {
+      "Name": "Automation Database",
+      "Group": "Automation Lab",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "automation_db",
+      "Username": "auto_user",
+      "SSLMode": "prefer",
+      "Comment": "Banco de dados para automações"
+    }
+  }
+}

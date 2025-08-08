@@ -1,0 +1,47 @@
+{
+  "database": {
+    "type": "postgresdb",
+    "postgresdb": {
+      "host": "postgres",
+      "port": 5432,
+      "database": "n8n",
+      "user": "n8n_user",
+      "password": "n8n_password"
+    }
+  },
+  "credentials": {
+    "overwrite": {
+      "data": "Ask",
+      "endpoint": "Ask"
+    }
+  },
+  "workflows": {
+    "defaultName": "Meu Workflow"
+  },
+  "nodes": {
+    "communityPackages": {
+      "enabled": true,
+      "registry": "https://registry.npmjs.org"
+    }
+  },
+  "logging": {
+    "level": "info",
+    "outputs": ["console", "file"],
+    "file": {
+      "location": "/home/node/logs/n8n.log",
+      "maxsize": "10m",
+      "maxFiles": 5
+    }
+  },
+  "security": {
+    "basicAuth": {
+      "active": true,
+      "user": "admin",
+      "password": "admin123"
+    }
+  },
+  "timezone": "America/Sao_Paulo",
+  "userManagement": {
+    "disabled": false
+  }
+}
