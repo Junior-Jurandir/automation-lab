@@ -1,10 +1,12 @@
 # Makefile para Laboratório de Automação N8N
 # Facilita o gerenciamento do ambiente Docker
 
-.PHONY: help start stop restart logs backup clean install status
+.PHONY: help start stop restart logs backup clean install install-menu status
 
 # Variáveis
 COMPOSE_FILE = docker-compose.yml
+COMPOSE_CUSTOM = docker-compose.custom.yml
+COMPOSE_PROD = docker-compose.prod.yml
 SCRIPTS_DIR = scripts
 
 # Comando padrão
@@ -17,10 +19,29 @@ help: ## Mostra esta ajuda
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 	@echo ""
 	@echo "Exemplos de uso:"
-	@echo "  make install    # Primeira instalação"
-	@echo "  make start      # Iniciar laboratório"
-	@echo "  make logs       # Ver logs de todos os serviços"
-	@echo "  make backup     # Fazer backup completo"
+	@echo "  make install-menu # Instalação seletiva com menu"
+	@echo "  make install      # Primeira instalação completa"
+	@echo "  make start        # Iniciar laboratório"
+	@echo "  make logs         # Ver logs de todos os serviços"
+	@echo "  make backup       # Fazer backup completo"
+
+# Instalação seletiva com menu interativo
+install-menu: ## Inicia menu interativo para instalação seletiva
+	@echo "🔧 Iniciando menu de instalação seletiva..."
+	@chmod +x $(SCRIPTS_DIR)/install-menu.sh
+	@./$(SCRIPTS_DIR)/install-menu.sh
+
+# Instalação inicial completa
+install: ## Instala e configura o laboratório pela primeira vez
+	@echo "🔧 Instalando laboratório de automação..."
+	@if [ ! -f .env ]; then \
+		cp .env.example .env; \
+		echo "✅ Arquivo .env criado a partir do exemplo"; \
+		echo "⚠️  Edite o arquivo .env com suas configurações"; \
+	fi
+	@chmod +x $(SCRIPTS_DIR)/*.sh
+	@echo "✅ Permissões dos scripts configuradas"
+	@$(SCRIPTS_DIR)/start.sh
 
 # Instalação inicial
 install: ## Instala e configura o laboratório pela primeira vez
